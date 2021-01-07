@@ -8,8 +8,8 @@ def ocr_core(filename):
     """
     This function will handle the core OCR processing of images.
     """
-    text = pytesseract.image_to_string(Image.open('/users/salimakazab/desktop/image1.jpg'))  #image to text works
+    text = pytesseract.image_to_string(Image.open('files/image1.jpg'))  #image to text works
     return text
 
-print(ocr_core('/users/salimakazab/desktop/image1.jpg'))
+print(ocr_core('files/image1.jpg'))
 
