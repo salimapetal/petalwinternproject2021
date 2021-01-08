@@ -13,3 +13,6 @@ def ocr_core(filename):
 
 print(ocr_core('/Users/salimakazab/Desktop/petalwinternproject21/petalwinternproject2021/files/utilitybill1.jpg'))
 
+#f = open("text.txt", "w")
+#f.write(ocr_core('/Users/salimakazab/Desktop/petalwinternproject21/petalwinternproject2021/files/utilitybill1.jpg'))
+#f.close()
