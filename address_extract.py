@@ -1,3 +1,5 @@
+import imagetotext
+
 string = "DION COPNEY, 216 BRIGHTON AVE, PORTLAND, ME 04101"
 
 name = ""
