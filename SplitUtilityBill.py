@@ -4,7 +4,7 @@ import re
 str= imagetotext.ocr_core()
 
 #clean string
-pat = re.compile(r'[^a-zA-Z ]+')
+pat = re.compile(r'[^0-9a-zA-Z ]+')
 str = re.sub(pat, '', str).lower()
 
 #split string
