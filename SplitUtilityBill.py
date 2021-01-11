@@ -12,4 +12,4 @@ splits = str.split()
 
 #for loop to iterate over words array
 for split in splits:
-	print(split)
+	splitdoc=print(split)
