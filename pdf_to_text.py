@@ -23,6 +23,7 @@ else:
     print(text)
 
 lines = text.split('/n') 
-import re
-street_address = re.search(r'\d{1,4} [\w\s]{1,20}(?:street|st|avenue|ave|road|rd|highway|hwy|square|sq|trail|trl|drive|dr|court|ct|parkway|pkwy|circle|cir|boulevard|blvd)\W?(?=\s|$)', text)
-print(street_address)
+#import re
+#street_address = re.search(r'\d{1,4} [\w\s]{1,20}(?:street|st|avenue|ave|road|rd|highway|hwy|square|sq|trail|trl|drive|dr|court|ct|parkway|pkwy|circle|cir|boulevard|blvd)\W?(?=\s|$)', text)
+#print(street_address)
+#print(street_address)
