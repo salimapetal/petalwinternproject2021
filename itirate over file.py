@@ -4,5 +4,5 @@ os.chdir(path)
 for filename in os.listdir(path):
     if filename.endswith(".txt, .pdf, .png, .jpg, .jpeg, .gif"):
         f = open(filename)
-print (filename)
-        
+filename = path + "/" + filename
+print(filename)
