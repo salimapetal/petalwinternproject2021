@@ -1,15 +1,17 @@
-import imagetotext
+from imagetotext import extraction
 import re
 
-str= imagetotext.ocr_core()
+ext = extraction
 
 #clean string
 pat = re.compile(r'[^0-9a-zA-Z ]+')
-str = re.sub(pat, '', str).lower()
+ext = re.sub(re.compile (r'\n'), ' ', ext)
+ext = re.sub(pat, '', ext).lower()
 
 #split string
-splits = str.split()
+splitdoc = ext.split()
 
 #for loop to iterate over words array
-for split in splits:
-	splitdoc=print(split)
+#for split in splits:
+	#splitdoc=print(split)
+print (extraction)

@@ -13,5 +13,8 @@ def ocr_core():
     return text
 
 if __name__ == "__main__" :
-    print(ocr_core())
+    print(ocr_core()) 
+
+extraction = (ocr_core())
+
 

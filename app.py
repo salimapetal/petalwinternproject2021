@@ -1,4 +1,5 @@
 import os
+from addresscode import extract_address
 from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
 app=Flask(__name__)
@@ -27,6 +28,11 @@ def upload_file():
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
+        payload = request.form.to_dict()
+        fname = payload['fname']
+        lname = payload['lname']
+        zipcode = payload['zipcode']
+        print(payload)
         file = request.files['file']
         first_name = request.form.get("fname")
         if file.filename == '':
@@ -35,6 +41,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            extract_address(last_name=lname, zip_code=zipcode)
             flash('File successfully uploaded')
             return (f'<!DOCTYPE html><html><h1>{first_name}</h1></html>')
         else:
