@@ -1,13 +1,13 @@
-from SplitUtilityBill import splitdoc
+from SplitUtilityBill import split_utility_bill
 
-def extract_address(last_name,zip_code):
-    words_in_file = splitdoc
+def extract_address(filename,last_name,zip_code):
+    words_in_file = split_utility_bill(filename)
     print('- - - - - - - - - -')
     start_index : int = -1
     end_index: int = -1
     count: int = 0
 
-    while count < len(words_in_file):
+    while count < len(words_in_file) and (start_index == -1 or end_index == -1):
         text_data = words_in_file[count]
         print(f'index={count} and text={text_data}')
         if last_name in text_data :

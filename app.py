@@ -7,7 +7,7 @@ app.secret_key = "secret key"
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 path = os.getcwd()
 # file Upload
-UPLOAD_FOLDER = os.path.join(path)
+UPLOAD_FOLDER = os.path.join(path, 'uploads')
 if not os.path.isdir(UPLOAD_FOLDER):
     os.mkdir(UPLOAD_FOLDER)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -29,8 +29,8 @@ def upload_file():
             flash('No file part')
             return redirect(request.url)
         payload = request.form.to_dict()
-        fname = payload['fname']
-        lname = payload['lname']
+        fname = payload['fname'].lower()
+        lname = payload['lname'].lower()
         zipcode = payload['zipcode']
         print(payload)
         file = request.files['file']
@@ -41,7 +41,8 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            output_address = extract_address(last_name=lname, zip_code=zipcode)
+            print(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            output_address = extract_address(filename = filename,last_name=lname, zip_code=zipcode)
             flash('File successfully uploaded')
             return (f'<!DOCTYPE html><html><h1>{output_address}</h1></html>')
         else:
