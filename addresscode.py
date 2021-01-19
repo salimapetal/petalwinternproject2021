@@ -15,7 +15,10 @@ def extract_address(last_name,zip_code):
         if zip_code == text_data:
             end_index = count + 1
         count = count + 1
-    print(f'address is {" ".join(words_in_file[start_index:end_index])}')
+    address = " ".join(words_in_file[start_index:end_index])
+    print(f'address is {address}')
     print(f'start={start_index} and end={end_index}')
+    return address
+    
 if __name__ == "__main__":
     extract_address()

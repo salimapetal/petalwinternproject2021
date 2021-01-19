@@ -41,9 +41,9 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            extract_address(last_name=lname, zip_code=zipcode)
+            output_address = extract_address(last_name=lname, zip_code=zipcode)
             flash('File successfully uploaded')
-            return (f'<!DOCTYPE html><html><h1>{first_name}</h1></html>')
+            return (f'<!DOCTYPE html><html><h1>{output_address}</h1></html>')
         else:
             flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
             return redirect(request.url)
