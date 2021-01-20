@@ -15,6 +15,4 @@ def ocr_core(filename):
     return text
 
 if __name__ == "__main__" :
-    print(ocr_core()) 
-
-
+    print(ocr_core())
