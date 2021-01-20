@@ -4,23 +4,49 @@
   <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
     <style>
-      h3 {
-        font-size: 35px;
-        padding: 15px;
-        height: 50px;
-        width: 4000px;
-        text-align: left;
-        background-color: white;
-        }
+    input[type=text]
+    {
+      width: 100%;
+      padding: 12px 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid black;
+      border-radius: 10px;
+      background-color: lightgrey;
+      color: white;
+    }
+    h3
+    {
+      font-size: 35px;
+      padding: 15px;
+      height: 50px;
+      width: 1800px;
+      text-align: left;
+      background-color: white;
+    }
+      h4
+      {
+      font-size: 20px;
+      font-family:'Quicksand', sans-serif;
+      }
+      h5
+      {
+      font-size: 14px;
+      font-family:'Rubik', sans-serif;
+      }
       div
-        {
+      {
         background-color:white;
         padding:30px;
-        height: 330px;
-        width: 300px;
+        height: 600px;
+        width: 330px;
         line-height: normal;
-        }
+      }
       body
         {
         font-family: "Roboto", sans-serif;
@@ -32,13 +58,10 @@
 <body>
   <h3>Petal</h3>
 <center>
-  <!---
-      <img src="/Users/kaylaortiz/Desktop/projects/petalwinternproject2021/Images/petalsquarelogo.jpg"width="150" height="150">
-      <form action="/action_page.php">  --->
-  <p style="background-color:#f7fa8f ;"></p>
+  
     <div>
-<h2>Let's start by veryfing your address</h2>
-<h3>Please enter your personal information</h3>
+<h4>Let's start by veryfing your address</h4>
+<h5>Please enter your personal information</h5>
 <p>
     <!--{% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -58,13 +81,13 @@
     <label for="zipcode">Zip Code:</label><br>
     <input type="text" id="zipcode" name="zipcode" value="" required><br>
     <dl>
-        <p>
-            <input type="file" name="file" autocomplete="off" required>
-        </p>
-    </dl>
-    <p>
-        <input type="submit" value="Submit">
+      <p>
+        <input type="file" name="file" autocomplete="off" required>
     </p>
+</dl>
+<p>
+    <input type="submit" value="Submit">
+</p>
 </form>
 </body>
 </center>
