@@ -69,32 +69,15 @@
 <body style="background-color:#8edbdf ;">
 
   <h3>Petal</h3>
-  <center>
+ <center>
 
     <div>
       <h4>Let's start by verifying your address</h4>
       <h5>Please enter your personal information</h5>
-      <p>
-        <!--{% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul class=flashes>
-        {% for message in messages %}
-          <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %} -->
-      </p>
       <form action="/" method="post" enctype="multipart/form-data">
         <input type="text" name="fname" placeholder="First name" value="" required><br>
         <input type="text" name="lname" placeholder="Last Name" value="" required><br>
         <input type="text" name="zipcode" placeholder="Zip Code" value="" required><br>
-        <!-- <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" value="" required><br>
-    <label for="lname">Last Name:</label><br>
-    <input type="text" id="lname" name="lname" value="" required><br><br>
-    <label for="zipcode">Zip Code:</label><br>
-    <input type="text" id="zipcode" name="zipcode" value="" required><br>-->
         <dl>
           <p>
             <input type="file" name="file" autocomplete="off" required>
@@ -103,11 +86,12 @@
         <p>
           <input type="submit" value="Submit" id="submit-button">
         </p>
+        <div id="successMessage" style="display:none;">
+          Your address is:
+          <p id="address_output"></p>
+        </div>
       </form>
-      <div id="successMessage" style="display:none;">
-        Your address is:
-        <p id="address_output"></p>
-      </div>
+
       <script>
         const form = document.querySelector('form')
 
@@ -128,7 +112,6 @@
 
         })
       </script>
-  </center>
-</body>
-
+</center>
+ </body>
 </html>
