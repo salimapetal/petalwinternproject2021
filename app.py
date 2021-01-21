@@ -1,6 +1,6 @@
 import os
 from addresscode import extract_address
-from flask import Flask, flash, request, redirect, render_template
+from flask import Flask, flash, request, redirect, render_template, jsonify
 from werkzeug.utils import secure_filename
 app=Flask(__name__)
 app.secret_key = "secret key"
@@ -21,7 +21,7 @@ def upload_form():
 def success():
     return ('<!DOCTYPE html><html><h1>http://127.0.0.1:7000/success</h1></html>')
 
-@app.route('/', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -44,7 +44,7 @@ def upload_file():
             print(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             output_address = extract_address(filename = filename,last_name=lname, zip_code=zipcode)
             flash('File successfully uploaded')
-            return (f'<!DOCTYPE html><html><h1>{output_address}</h1></html>')
+            return jsonify({'address': output_address})
         else:
             flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
             return redirect(request.url)

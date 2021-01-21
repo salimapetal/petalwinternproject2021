@@ -101,9 +101,33 @@
     </p>
 </dl>
 <p>
-     <input type="submit" value="Submit">
+     <input type="submit" value="Submit" id="submit-button">
 </p>
 </form>
+<div id="successMessage" style="display:none;">
+  Your address is:
+  <p id="address_output"></p>
+</div>
+<script> 
+const form = document.querySelector('form')
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  const formData = new FormData(document.querySelector('form'))
+  document.getElementById("submit-button").disabled = true
+  fetch('/upload', {
+    method: 'POST',
+    body: formData,
+  })
+  .then(response => response.json())
+  .then((response) => {
+    console.log(response)
+    document.getElementById("successMessage").style.display = "block"
+    document.getElementById("address_output").innerHTML = response.address
+  })
+
+})
+</script>
 </body>
 </center>
 </html>
